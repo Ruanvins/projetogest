@@ -1,0 +1,118 @@
+/* Container principal */
+.login-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Lado esquerdo: mensagem de boas-vindas */
+.login-left {
+  flex: 1;
+  background-color: #28a745;
+  color: white;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-left h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.login-left h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.login-left p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Lado direito: formulário de login */
+.login-right {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-right h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.login-right p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.login-right span {
+  color: #28a745;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+a {
+  font-size: 14px;
+  color: #28a745;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Login social */
+.social-login {
+  margin-top: 30px;
+}
+
+.social-login p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.google-btn,
+.facebook-btn {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.google-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.facebook-btn:hover {
+  background-color: #e0e0e0;
+}
