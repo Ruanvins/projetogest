@@ -1,0 +1,225 @@
+/* ====================================================================
+   REFORMULAÇÃO CSS - MÓDULO RECEBER
+   Baseado na estrutura do módulo PAGAR, com cores e classes adaptadas.
+   ==================================================================== */
+
+/* --- 1. Variáveis de Design System --- */
+:root {
+  /* Cores Primárias (Verde para Receitas) */
+  --color-primary: #059669; /* Verde Emerald Moderno */
+  --color-primary-hover: #047857;
+  --color-success: #059669; /* Mantém a cor primária para sucesso/valor */
+  --color-danger: #ef4444;
+
+  /* Cores de Fundo e Superfície */
+  --color-bg-page: #f3f4f6; /* Fundo da página */
+  --color-bg-card: #ffffff; /* Fundo do card */
+  --color-bg-input: #f9fafb; /* Fundo do input */
+  --color-bg-danger-light: #fee2e2; /* Fundo leve para perigo */
+
+  /* Cores de Texto */
+  --color-text-dark: #1f2937;
+  --color-text-muted: #6b7280;
+
+  /* Bordas e Sombras */
+  --color-border-light: #e5e7eb;
+  --color-border-lighter: #f3f4f6;
+  --border-radius-lg: 16px;
+  --border-radius-md: 10px;
+  --border-radius-sm: 8px;
+  --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+  /* Espaçamento */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 40px;
+}
+
+/* --- 2. Estilos Globais e Layout Base --- */
+.receber-container {
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 60px 20px;
+
+  /* Tipografia e Cores */
+  background-color: var(--color-bg-page);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-text-dark);
+}
+
+/* --- 3. Componente Card Principal --- */
+.receber-card {
+  background: var(--color-bg-card);
+  padding: var(--spacing-xxl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+  max-width: 550px; /* Mantido o mesmo max-width do pagar para consistência */
+  /* Borda sutil para definição, usando uma cor mais clara */
+  border: 1px solid var(--color-border-light);
+}
+
+.receber-card h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-dark);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* --- 4. Componente Formulário --- */
+.receber-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Estilos de Input */
+.receber-form input {
+  padding: 14px var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-light);
+  background-color: var(--color-bg-input);
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  transition: all 0.2s ease;
+}
+
+.receber-form input:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-bg-card); /* Branco */
+  outline: none;
+  /* Anel de foco suave com opacidade */
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15); /* Cor primária verde com opacidade */
+}
+
+/* Estilos de Botão Principal */
+.receber-form button {
+  padding: 14px;
+  border-radius: var(--border-radius-md);
+  border: none;
+  cursor: pointer;
+  background: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.025em;
+  transition: background-color 0.2s, transform 0.1s;
+  margin-top: var(--spacing-xs);
+}
+
+.receber-form button:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.receber-form button:active {
+  transform: translateY(0);
+}
+
+/* --- 5. Componente Resumo --- */
+.receber-summary {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+/* --- 6. Componente Lista de Itens --- */
+.receber-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.receber-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-lighter);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.receber-item:hover {
+  background: var(--color-bg-card);
+  transform: translateX(4px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border-color: var(--color-border-light);
+}
+
+/* Estado: Item Recebido */
+.receber-item.received {
+  background-color: var(--color-bg-input);
+  opacity: 0.7;
+}
+
+.receber-item.received .item-left h4 {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+/* --- 7. Estilos de Elementos Internos do Item --- */
+.item-left h4 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.value {
+  font-weight: 700;
+  color: var(--color-success); /* Usa a cor primária (verde) para o valor */
+  font-size: 1.1rem;
+  margin-right: var(--spacing-xs);
+}
+
+.date {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  display: block;
+}
+
+/* --- 8. Componente Ações do Item (Botões Pequenos) --- */
+.item-actions button {
+  margin-left: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  background: var(--color-border-lighter); /* Cor de fundo neutra */
+  color: var(--color-text-dark);
+}
+
+.item-actions button:hover {
+  background: var(--color-border-light);
+}
+
+/* Botão de deletar específico */
+.item-actions .btn-delete {
+  color: var(--color-danger);
+  background: transparent;
+}
+
+.item-actions .btn-delete:hover {
+  background: var(--color-bg-danger-light);
+}
