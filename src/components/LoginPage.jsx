@@ -22,8 +22,11 @@ const LoginPage = () => {
         senha
       });
 
+      // Salva token e email no localStorage
       localStorage.setItem("token", resposta.data.token);
+      localStorage.setItem("userEmail", email);
 
+      // Redireciona para página inicial
       navigate('/inicio');
     } catch (err) {
       setErro("Credenciais inválidas");

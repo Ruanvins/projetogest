@@ -1,18 +1,27 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/InicioPage.css";
 
 const InicioPage = () => {
-  const userEmail = "usuario@email.com"; // Substitua pelo email real do usuário
+  const navigate = useNavigate();
   const [showUserMenu, setShowUserMenu] = useState(false);
+
+  // Recupera o email salvo no login
+  const userEmail = localStorage.getItem("userEmail") || "Usuário";
 
   const toggleUserMenu = () => {
     setShowUserMenu(!showUserMenu);
   };
 
   const handleLogout = () => {
-    // Implementar lógica de logout aqui
+    // Remove dados do usuário
+    localStorage.removeItem("token");
+    localStorage.removeItem("userEmail");
+
     console.log("Logout realizado");
+
+    // Redireciona para a página de login
+    navigate("/");
   };
 
   return (
@@ -35,7 +44,9 @@ const InicioPage = () => {
           <div className="user-menu">
             <button className="user-menu-btn" onClick={toggleUserMenu}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 
+                1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 
+                1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
               </svg>
             </button>
             
@@ -46,7 +57,9 @@ const InicioPage = () => {
                 </div>
                 <button className="logout-btn" onClick={handleLogout}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                    <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 
+                    2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 
+                    .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
                   </svg>
                   Sair
                 </button>
